@@ -1,0 +1,17 @@
+version: '1.0.0'
+
+services:
+  postgres: #we can give any name(service_name)
+    image: postgres #these image is fetched from hub.docker.com
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: review
+      POSTGRES_PASSWORD: password
+
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    
