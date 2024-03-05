@@ -1,0 +1,18 @@
+#base image
+FROM node:latest
+
+# #copy the files
+# COPY main.js /home/app/index.js
+# COPY package.json /home/app/package.json
+
+#for a project we won't be writing command to copy every file so we copy all the things 
+#and add the folder name and file to .dockerignore for the things we don't want in our docker image
+COPY . /home/app
+
+#working directory
+WORKDIR /home/app
+
+#run the docker image and dependencies install command
+EXPOSE 9000
+RUN npm install
+CMD ["node", "index"]
